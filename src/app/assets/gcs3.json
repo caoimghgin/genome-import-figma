@@ -1,0 +1,1450 @@
+{
+    "A": {
+        "values": {
+            "0": {
+                "id": "A0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "A1",
+                "value": "#fbf7f8",
+                "lightness": 98,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "A2",
+                "value": "#f7eff1",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "3": {
+                "id": "A3",
+                "value": "#eedee3",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "4": {
+                "id": "A4",
+                "value": "#e6ced6",
+                "lightness": 85,
+                "l_target": 85,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "5": {
+                "id": "A5",
+                "value": "#ddbec8",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "6": {
+                "id": "A6",
+                "value": "#d4afbb",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "LIGHT-SKIN"
+            },
+            "7": {
+                "id": "A7",
+                "value": "#cb9fae",
+                "lightness": 70,
+                "l_target": 70,
+                "userDefined": false,
+                "ccName": "PINK"
+            },
+            "8": {
+                "id": "A8",
+                "value": "#c390a2",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "PINK"
+            },
+            "9": {
+                "id": "A9",
+                "value": "#ba8195",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "PINK"
+            },
+            "10": {
+                "id": "A10",
+                "value": "#b07187",
+                "lightness": 55,
+                "l_target": 55,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "11": {
+                "id": "A11",
+                "value": "#a8627c",
+                "lightness": 50,
+                "l_target": 50,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "12": {
+                "id": "A12",
+                "value": "#9e5370",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "13": {
+                "id": "A13",
+                "value": "#944464",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "14": {
+                "id": "A14",
+                "value": "#8a3358",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "15": {
+                "id": "A15",
+                "value": "#80224d",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "16": {
+                "id": "A16",
+                "value": "#750741",
+                "lightness": 25,
+                "l_target": 25,
+                "userDefined": true,
+                "ccName": "PURPLE"
+            },
+            "17": {
+                "id": "A17",
+                "value": "#5e0f36",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "18": {
+                "id": "A18",
+                "value": "#481129",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "19": {
+                "id": "A19",
+                "value": "#31101d",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "20": {
+                "id": "A20",
+                "value": "#1e0b12",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "A21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "A"
+    },
+    "B": {
+        "values": {
+            "0": {
+                "id": "B0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "B1",
+                "value": "#fef7f2",
+                "lightness": 98,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "B2",
+                "value": "#fbeee4",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "3": {
+                "id": "B3",
+                "value": "#f7deca",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "4": {
+                "id": "B4",
+                "value": "#f1ceb0",
+                "lightness": 85,
+                "l_target": 85,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "5": {
+                "id": "B5",
+                "value": "#eabe97",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "LIGHT-SKIN"
+            },
+            "6": {
+                "id": "B6",
+                "value": "#e2af7e",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "LGHT-TAN"
+            },
+            "7": {
+                "id": "B7",
+                "value": "#da9f66",
+                "lightness": 70,
+                "l_target": 70,
+                "userDefined": false,
+                "ccName": "LGHT-TAN"
+            },
+            "8": {
+                "id": "B8",
+                "value": "#d1904d",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "LGHT-TAN"
+            },
+            "9": {
+                "id": "B9",
+                "value": "#c88134",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "LGHT-TAN"
+            },
+            "10": {
+                "id": "B10",
+                "value": "#c3771b",
+                "lightness": 57,
+                "l_target": 55,
+                "userDefined": true,
+                "ccName": "DARK-TAN"
+            },
+            "11": {
+                "id": "B11",
+                "value": "#aa6715",
+                "lightness": 50,
+                "l_target": 50,
+                "userDefined": false,
+                "ccName": "DARK-TAN"
+            },
+            "12": {
+                "id": "B12",
+                "value": "#985d15",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "DARK-TAN"
+            },
+            "13": {
+                "id": "B13",
+                "value": "#875215",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "DARK-TAN"
+            },
+            "14": {
+                "id": "B14",
+                "value": "#754815",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "DARK-SKIN"
+            },
+            "15": {
+                "id": "B15",
+                "value": "#643e13",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "DARK-SKIN"
+            },
+            "16": {
+                "id": "B16",
+                "value": "#543413",
+                "lightness": 25,
+                "l_target": 25,
+                "userDefined": false,
+                "ccName": "DARK-SKIN"
+            },
+            "17": {
+                "id": "B17",
+                "value": "#432b11",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "DARK-SKIN"
+            },
+            "18": {
+                "id": "B18",
+                "value": "#34220f",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "19": {
+                "id": "B19",
+                "value": "#25190b",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "20": {
+                "id": "B20",
+                "value": "#180f05",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "B21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "B"
+    },
+    "C": {
+        "values": {
+            "0": {
+                "id": "C0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "C1",
+                "value": "#f4f9f2",
+                "lightness": 97,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "C2",
+                "value": "#eaf3e5",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "3": {
+                "id": "C3",
+                "value": "#d6e8ca",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "4": {
+                "id": "C4",
+                "value": "#c1dcb1",
+                "lightness": 85,
+                "l_target": 85,
+                "userDefined": false,
+                "ccName": "YELLOW-GREEN"
+            },
+            "5": {
+                "id": "C5",
+                "value": "#aed198",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "YELLOW-GREEN"
+            },
+            "6": {
+                "id": "C6",
+                "value": "#99c57f",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "YELLOW-GREEN"
+            },
+            "7": {
+                "id": "C7",
+                "value": "#83ba66",
+                "lightness": 70,
+                "l_target": 70,
+                "userDefined": false,
+                "ccName": "MALACHITE-GREEN-LIGHT"
+            },
+            "8": {
+                "id": "C8",
+                "value": "#6dae4d",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "MALACHITE-GREEN-LIGHT"
+            },
+            "9": {
+                "id": "C9",
+                "value": "#55a232",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "MALACHITE-GREEN-LIGHT"
+            },
+            "10": {
+                "id": "C10",
+                "value": "#38950c",
+                "lightness": 54,
+                "l_target": 55,
+                "userDefined": true,
+                "ccName": "GREEN"
+            },
+            "11": {
+                "id": "C11",
+                "value": "#368810",
+                "lightness": 50,
+                "l_target": 50,
+                "userDefined": false,
+                "ccName": "GREEN"
+            },
+            "12": {
+                "id": "C12",
+                "value": "#327a12",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "VERDUN-GREEN"
+            },
+            "13": {
+                "id": "C13",
+                "value": "#2f6b15",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "VERDUN-GREEN"
+            },
+            "14": {
+                "id": "C14",
+                "value": "#2b5e14",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "VERDUN-GREEN"
+            },
+            "15": {
+                "id": "C15",
+                "value": "#275014",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "VERDUN-GREEN"
+            },
+            "16": {
+                "id": "C16",
+                "value": "#214312",
+                "lightness": 25,
+                "l_target": 25,
+                "userDefined": false,
+                "ccName": "DEEP-BRONZE"
+            },
+            "17": {
+                "id": "C17",
+                "value": "#1d3611",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "DEEP-BRONZE"
+            },
+            "18": {
+                "id": "C18",
+                "value": "#182a0f",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "DEEP-BRONZE"
+            },
+            "19": {
+                "id": "C19",
+                "value": "#141e0d",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "20": {
+                "id": "C20",
+                "value": "#0c1306",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "C21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "C"
+    },
+    "D": {
+        "values": {
+            "0": {
+                "id": "D0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "D1",
+                "value": "#fef6fd",
+                "lightness": 98,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "D2",
+                "value": "#fcecfb",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "3": {
+                "id": "D3",
+                "value": "#f8d9f5",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "4": {
+                "id": "D4",
+                "value": "#f5c6f1",
+                "lightness": 85,
+                "l_target": 85,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "5": {
+                "id": "D5",
+                "value": "#f0b3ec",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "PINK"
+            },
+            "6": {
+                "id": "D6",
+                "value": "#eb9fe6",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "PINK"
+            },
+            "7": {
+                "id": "D7",
+                "value": "#e58be1",
+                "lightness": 70,
+                "l_target": 70,
+                "userDefined": false,
+                "ccName": "PINK"
+            },
+            "8": {
+                "id": "D8",
+                "value": "#df77dc",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "9": {
+                "id": "D9",
+                "value": "#d960d7",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "10": {
+                "id": "D10",
+                "value": "#d64bd5",
+                "lightness": 56,
+                "l_target": 55,
+                "userDefined": true,
+                "ccName": "MAGENTA"
+            },
+            "11": {
+                "id": "D11",
+                "value": "#be42bd",
+                "lightness": 50,
+                "l_target": 50,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "12": {
+                "id": "D12",
+                "value": "#a93da8",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "13": {
+                "id": "D13",
+                "value": "#943894",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "14": {
+                "id": "D14",
+                "value": "#813280",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "15": {
+                "id": "D15",
+                "value": "#6e2c6c",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "16": {
+                "id": "D16",
+                "value": "#5c275a",
+                "lightness": 25,
+                "l_target": 25,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "17": {
+                "id": "D17",
+                "value": "#492148",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "18": {
+                "id": "D18",
+                "value": "#381b37",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "19": {
+                "id": "D19",
+                "value": "#271526",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "20": {
+                "id": "D20",
+                "value": "#180e17",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "D21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "D"
+    },
+    "E": {
+        "values": {
+            "0": {
+                "id": "E0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "E1",
+                "value": "#f6f8fa",
+                "lightness": 97,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "E2",
+                "value": "#eef1f5",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "3": {
+                "id": "E3",
+                "value": "#dce3ea",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "4": {
+                "id": "E4",
+                "value": "#cbd5e0",
+                "lightness": 85,
+                "l_target": 85,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "5": {
+                "id": "E5",
+                "value": "#bbc8d7",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "6": {
+                "id": "E6",
+                "value": "#aabacd",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "NEUTRAL-65"
+            },
+            "7": {
+                "id": "E7",
+                "value": "#99adc3",
+                "lightness": 70,
+                "l_target": 70,
+                "userDefined": false,
+                "ccName": "NEUTRAL-65"
+            },
+            "8": {
+                "id": "E8",
+                "value": "#8aa0ba",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "NEUTRAL-65"
+            },
+            "9": {
+                "id": "E9",
+                "value": "#7993b0",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "10": {
+                "id": "E10",
+                "value": "#6887a6",
+                "lightness": 55,
+                "l_target": 55,
+                "userDefined": false,
+                "ccName": "BLUE-SKY"
+            },
+            "11": {
+                "id": "E11",
+                "value": "#54789a",
+                "lightness": 49,
+                "l_target": 50,
+                "userDefined": true,
+                "ccName": "BLUE-SKY"
+            },
+            "12": {
+                "id": "E12",
+                "value": "#4e6d8c",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "BLUE-SKY"
+            },
+            "13": {
+                "id": "E13",
+                "value": "#46617b",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "PURPLISH-BLUE"
+            },
+            "14": {
+                "id": "E14",
+                "value": "#3e556b",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "PURPLISH-BLUE"
+            },
+            "15": {
+                "id": "E15",
+                "value": "#36495b",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "BLUE"
+            },
+            "16": {
+                "id": "E16",
+                "value": "#2e3d4c",
+                "lightness": 25,
+                "l_target": 25,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "17": {
+                "id": "E17",
+                "value": "#26323d",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "18": {
+                "id": "E18",
+                "value": "#1f272f",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "19": {
+                "id": "E19",
+                "value": "#171c21",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "20": {
+                "id": "E20",
+                "value": "#0e1114",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "E21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "E"
+    },
+    "F": {
+        "values": {
+            "0": {
+                "id": "F0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "F1",
+                "value": "#faf7fc",
+                "lightness": 98,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "F2",
+                "value": "#f5eff9",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "3": {
+                "id": "F3",
+                "value": "#ebdef1",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "4": {
+                "id": "F4",
+                "value": "#e1ceeb",
+                "lightness": 85,
+                "l_target": 85,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "5": {
+                "id": "F5",
+                "value": "#d7bee4",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "6": {
+                "id": "F6",
+                "value": "#ccaedd",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "7": {
+                "id": "F7",
+                "value": "#c29ed7",
+                "lightness": 70,
+                "l_target": 70,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "8": {
+                "id": "F8",
+                "value": "#b78ecf",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "9": {
+                "id": "F9",
+                "value": "#ac7fc8",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "10": {
+                "id": "F10",
+                "value": "#a16fc1",
+                "lightness": 55,
+                "l_target": 55,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "11": {
+                "id": "F11",
+                "value": "#9660ba",
+                "lightness": 50,
+                "l_target": 50,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "12": {
+                "id": "F12",
+                "value": "#8b50b4",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "MAGENTA"
+            },
+            "13": {
+                "id": "F13",
+                "value": "#7f41ac",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "14": {
+                "id": "F14",
+                "value": "#7430a5",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "15": {
+                "id": "F15",
+                "value": "#671d9e",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "16": {
+                "id": "F16",
+                "value": "#61099d",
+                "lightness": 27,
+                "l_target": 25,
+                "userDefined": true,
+                "ccName": "PURPLE"
+            },
+            "17": {
+                "id": "F17",
+                "value": "#490a77",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "18": {
+                "id": "F18",
+                "value": "#390f59",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "19": {
+                "id": "F19",
+                "value": "#290f3c",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "20": {
+                "id": "F20",
+                "value": "#1a0a21",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "F21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "F"
+    },
+    "G": {
+        "values": {
+            "0": {
+                "id": "G0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "G1",
+                "value": "#e8fee2",
+                "lightness": 97,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "G2",
+                "value": "#d0fdc6",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "LIME-GREEN"
+            },
+            "3": {
+                "id": "G3",
+                "value": "#98f98a",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "LIME-GREEN"
+            },
+            "4": {
+                "id": "G4",
+                "value": "#44f147",
+                "lightness": 84,
+                "l_target": 85,
+                "userDefined": true,
+                "ccName": "LIME-GREEN"
+            },
+            "5": {
+                "id": "G5",
+                "value": "#45e346",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "LIME-GREEN"
+            },
+            "6": {
+                "id": "G6",
+                "value": "#43d342",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "LIME-GREEN"
+            },
+            "7": {
+                "id": "G7",
+                "value": "#3fc43f",
+                "lightness": 70,
+                "l_target": 70,
+                "userDefined": false,
+                "ccName": "MALACHITE-GREEN-LIGHT"
+            },
+            "8": {
+                "id": "G8",
+                "value": "#3db43a",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "MALACHITE-GREEN-LIGHT"
+            },
+            "9": {
+                "id": "G9",
+                "value": "#39a536",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "MALACHITE-GREEN-LIGHT"
+            },
+            "10": {
+                "id": "G10",
+                "value": "#369633",
+                "lightness": 55,
+                "l_target": 55,
+                "userDefined": false,
+                "ccName": "GREEN"
+            },
+            "11": {
+                "id": "G11",
+                "value": "#33882f",
+                "lightness": 50,
+                "l_target": 50,
+                "userDefined": false,
+                "ccName": "GREEN"
+            },
+            "12": {
+                "id": "G12",
+                "value": "#30792c",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "VERDUN-GREEN"
+            },
+            "13": {
+                "id": "G13",
+                "value": "#2c6b28",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "CADMIUM-GREEN"
+            },
+            "14": {
+                "id": "G14",
+                "value": "#295d23",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "VERDUN-GREEN"
+            },
+            "15": {
+                "id": "G15",
+                "value": "#255021",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "CADMIUM-GREEN"
+            },
+            "16": {
+                "id": "G16",
+                "value": "#20431c",
+                "lightness": 25,
+                "l_target": 25,
+                "userDefined": false,
+                "ccName": "DEEP-BRONZE"
+            },
+            "17": {
+                "id": "G17",
+                "value": "#1c3618",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "DEEP-BRONZE"
+            },
+            "18": {
+                "id": "G18",
+                "value": "#172a14",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "19": {
+                "id": "G19",
+                "value": "#131e10",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "20": {
+                "id": "G20",
+                "value": "#0b1308",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "G21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "G"
+    },
+    "H": {
+        "values": {
+            "0": {
+                "id": "H0",
+                "value": "#ffffff",
+                "lightness": 100,
+                "l_target": 100,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "1": {
+                "id": "H1",
+                "value": "#fbf7f9",
+                "lightness": 98,
+                "l_target": 97.5,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "2": {
+                "id": "H2",
+                "value": "#f6eff4",
+                "lightness": 95,
+                "l_target": 95,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "3": {
+                "id": "H3",
+                "value": "#ecdfea",
+                "lightness": 90,
+                "l_target": 90,
+                "userDefined": false,
+                "ccName": "WHITE-05"
+            },
+            "4": {
+                "id": "H4",
+                "value": "#e3cfe0",
+                "lightness": 85,
+                "l_target": 85,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "5": {
+                "id": "H5",
+                "value": "#d9bfd4",
+                "lightness": 80,
+                "l_target": 80,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "6": {
+                "id": "H6",
+                "value": "#cfafca",
+                "lightness": 75,
+                "l_target": 75,
+                "userDefined": false,
+                "ccName": "NEUTRAL-80"
+            },
+            "7": {
+                "id": "H7",
+                "value": "#c7a1c1",
+                "lightness": 71,
+                "l_target": 70,
+                "userDefined": true,
+                "ccName": "PINK"
+            },
+            "8": {
+                "id": "H8",
+                "value": "#b593b0",
+                "lightness": 65,
+                "l_target": 65,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "9": {
+                "id": "H9",
+                "value": "#a787a2",
+                "lightness": 60,
+                "l_target": 60,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "10": {
+                "id": "H10",
+                "value": "#987b93",
+                "lightness": 55,
+                "l_target": 55,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "11": {
+                "id": "H11",
+                "value": "#896f85",
+                "lightness": 50,
+                "l_target": 50,
+                "userDefined": false,
+                "ccName": "BLUE-FLOWER"
+            },
+            "12": {
+                "id": "H12",
+                "value": "#7a6476",
+                "lightness": 45,
+                "l_target": 45,
+                "userDefined": false,
+                "ccName": "NEUTRAL-50"
+            },
+            "13": {
+                "id": "H13",
+                "value": "#6c5869",
+                "lightness": 40,
+                "l_target": 40,
+                "userDefined": false,
+                "ccName": "PURPLE"
+            },
+            "14": {
+                "id": "H14",
+                "value": "#5e4d5b",
+                "lightness": 35,
+                "l_target": 35,
+                "userDefined": false,
+                "ccName": "NEUTRAL-35"
+            },
+            "15": {
+                "id": "H15",
+                "value": "#50424e",
+                "lightness": 30,
+                "l_target": 30,
+                "userDefined": false,
+                "ccName": "NEUTRAL-35"
+            },
+            "16": {
+                "id": "H16",
+                "value": "#443842",
+                "lightness": 25,
+                "l_target": 25,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "17": {
+                "id": "H17",
+                "value": "#372e35",
+                "lightness": 20,
+                "l_target": 20,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "18": {
+                "id": "H18",
+                "value": "#2a2429",
+                "lightness": 15,
+                "l_target": 15,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "19": {
+                "id": "H19",
+                "value": "#1e1a1e",
+                "lightness": 10,
+                "l_target": 10,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "20": {
+                "id": "H20",
+                "value": "#131012",
+                "lightness": 5,
+                "l_target": 5,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            },
+            "21": {
+                "id": "H21",
+                "value": "#000000",
+                "lightness": 0,
+                "l_target": 0,
+                "userDefined": false,
+                "ccName": "BLACK-15"
+            }
+        },
+        "name": "H"
+    }
+}
