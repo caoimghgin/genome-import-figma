@@ -1,13 +1,8 @@
 // import * as React from 'react';
 import React, { useRef } from "react";
-// import { weightedTargets } from "../constants/weightedTargets";
-// import { SwatchMapModel } from "../models/SwatchMapModel";
-// import { SwatchModel } from "../models/SwatchModel";
-// import { columns } from "../constants"
-// import x_data from "../assets/gcs-x.json"
-// import { GridModel } from "../models/GridModel";
-
 import { Swatches } from "../modules/SwatchMatrix";
+// import { weightedTargets } from "../constants/weightedTargets";
+// import { columns } from "../constants"
 
 import '../styles/ui.css';
 
@@ -17,38 +12,19 @@ const App = ({ }) => {
 
     const inputFile = useRef(null)
 
-    const testingTestTest = () => {
-
-        // let map = new SwatchMapModel( weightedTargets(1) )
-        // displaySwatches(map, "BOB")
-    };
-
     const formatData = (data: any) => {
         let grid = JSON.parse(data) as Swatches.Grid
         return grid
     }
 
-    // const newHandleInputFile = (e: { target: any; }) => {
-    //     const fileReader = new FileReader();
-    //     fileReader.readAsText(e.target.files[0], "UTF-8");
-    //     fileReader.onload = (e) => {
-    //         let data = e.target.result
-    //         let grid = formatData(data)
-    //         console.log(grid)
-    //         parent.postMessage({ pluginMessage: { type: 'new-json', data: data } }, '*');
-    //         // parent.postMessage({ pluginMessage: { type: 'new-new-json', data: grid } }, '*');
-
-    //     };
-    // };
-
-    const handleInputFile = (e: { target: any; }) => {
+    const newHandleInputFile = (e: { target: any; }) => {
         const fileReader = new FileReader();
         fileReader.readAsText(e.target.files[0], "UTF-8");
         fileReader.onload = (e) => {
             let data = e.target.result
             let grid = formatData(data)
             console.log(grid)
-            parent.postMessage({ pluginMessage: { type: 'new-json', data: data } }, '*');
+            parent.postMessage({ pluginMessage: { type: 'new-json', data: grid } }, '*');
             // parent.postMessage({ pluginMessage: { type: 'new-new-json', data: grid } }, '*');
 
         };
@@ -83,7 +59,7 @@ const App = ({ }) => {
             <h2>Genome Import</h2>
 
             <input ref={inputFile}
-                onChange={handleInputFile}
+                onChange={newHandleInputFile}
                 type="file"
                 accept="application/JSON"
                 style={{ display: "none" }} />
@@ -93,7 +69,6 @@ const App = ({ }) => {
             <button onClick={onCancel}>Cancel</button>
 
             <button id="create" onClick={onCreate}>Import</button>
-            <button  onClick={testingTestTest}>Test</button>
 
         </div>
     );
