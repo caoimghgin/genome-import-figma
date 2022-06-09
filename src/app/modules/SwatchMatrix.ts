@@ -1,14 +1,12 @@
-export module Swatches {
+export module Matrix {
 
     export class Grid {
-        id: String
-        columns: Column[]
+        columns: Column[] = []
     }
 
     export class Column {
-        id: String;
-        semantic: String;
-        rows: Swatch[];
+        semantic!: String
+        rows: Swatch[] = []
     }
 
     export class Swatch {
@@ -20,6 +18,10 @@ export module Swatches {
         weight!: string
         semantic!: string
         lightness!: number
+        LAB!: LAB
+        LCH!: LCH
+        HSV!: HSV
+        colorChecker!: ColorCheckerModel
         isUserDefined!: boolean
         isNeutral!: boolean
         l_target!: number
@@ -30,5 +32,28 @@ export module Swatches {
         WCAG2_K_30!: boolean
         WCAG2_K_45!: boolean
     }
-}
 
+    class ColorCheckerModel {
+        name!: string
+        dE!: number
+    }
+
+    class LAB {
+        L!: number
+        a!: number
+        b!: number
+    }
+
+    class LCH {
+        L!: number
+        C!: number
+        H!: number
+    }
+
+    class HSV {
+        H!: number
+        S!: number
+        V!: number
+    }
+
+}

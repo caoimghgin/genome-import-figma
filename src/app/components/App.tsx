@@ -1,7 +1,8 @@
 // import * as React from 'react';
 import React, { useRef } from "react";
-import { Swatches } from "../modules/SwatchMatrix";
-// import { weightedTargets } from "../constants/weightedTargets";
+import { Matrix } from "../modules/SwatchMatrix";
+import { SwatchMapModel } from "../models/SwatchMapModel";
+import { weightedTargets } from "../constants/weightedTargets";
 // import { columns } from "../constants"
 
 import '../styles/ui.css';
@@ -12,9 +13,44 @@ const App = ({ }) => {
 
     const inputFile = useRef(null)
 
-    const formatData = (data: any) => {
-        let grid = JSON.parse(data) as Swatches.Grid
-        return grid
+    const createThingy = () => {
+        
+        let swatch1 = new Matrix.Swatch()
+        swatch1.id = "1"
+        swatch1.hex = "#laksdjf"
+
+        let swatch2 = new Matrix.Swatch()
+        swatch2.id = "2"
+
+        swatch2.hex = "#44rre"
+
+        let swatch3 = new Matrix.Swatch()
+        swatch3.id = "3"
+        swatch3.hex = "#uujj"
+
+        let swatch4 = new Matrix.Swatch()
+        swatch4.id = "4"
+        swatch4.hex = "#qqq"
+
+        let col1 = new Matrix.Column()
+        col1.semantic = "primary"
+        col1.rows = [swatch1, swatch2]
+
+        let col2 = new Matrix.Column()
+        col2.semantic = "secondary"
+        col2.rows = [swatch3, swatch4]
+
+        let g = new Matrix.Grid()
+        g.columns = [col1, col2]
+
+
+
+        const json = JSON.stringify(g)
+        console.log(json)
+
+        const obj = JSON.parse(json) as Matrix.Grid
+        console.log(obj)
+
     }
 
     const newHandleInputFile = (e: { target: any; }) => {
@@ -23,12 +59,15 @@ const App = ({ }) => {
         fileReader.onload = (e) => {
             let data = e.target.result
             let grid = formatData(data)
-            console.log(grid)
+            // console.log(grid.columns[1].rows[12])
             parent.postMessage({ pluginMessage: { type: 'new-json', data: grid } }, '*');
-            // parent.postMessage({ pluginMessage: { type: 'new-new-json', data: grid } }, '*');
-
         };
     };
+
+    const formatData = (data: any) => {
+        let grid = JSON.parse(data) as Matrix.Grid
+        return grid
+    }
 
     const onOpen = () => {
         inputFile.current.click()
@@ -69,6 +108,7 @@ const App = ({ }) => {
             <button onClick={onCancel}>Cancel</button>
 
             <button id="create" onClick={onCreate}>Import</button>
+            <button onClick={createThingy}>Create Thingy</button>
 
         </div>
     );
