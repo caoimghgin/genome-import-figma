@@ -10,12 +10,15 @@ export module Matrix {
     }
 
     export class Swatch {
+        filter(arg0: (obj: any) => boolean) {
+            throw new Error('Method not implemented.')
+        }
         id!: string
         column!: string
         row!: number
         name!: string
         hex!: string
-        weight!: string
+        weight!: string | undefined
         semantic!: string
         lightness!: number
         LAB!: LAB

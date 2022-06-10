@@ -43,8 +43,6 @@ const App = ({ }) => {
         let g = new Matrix.Grid()
         g.columns = [col1, col2]
 
-
-
         const json = JSON.stringify(g)
         console.log(json)
 
@@ -57,9 +55,11 @@ const App = ({ }) => {
         const fileReader = new FileReader();
         fileReader.readAsText(e.target.files[0], "UTF-8");
         fileReader.onload = (e) => {
-            let data = e.target.result
-            let grid = formatData(data)
-            // console.log(grid.columns[1].rows[12])
+            let swatches = formatData(e.target.result)
+            // let mapper = new SwatchMapModel(weightedTargets(0)) // non-optimized
+            let mapper = new SwatchMapModel(weightedTargets(6)) // Genome
+            // let mapper = new SwatchMapModel(weightedTargets(7)) // NewsKit
+            let grid = removeUndefinedWeightSwatches(xMapSwatchesToTarget(swatches, mapper))
             parent.postMessage({ pluginMessage: { type: 'new-json', data: grid } }, '*');
         };
     };
@@ -179,6 +179,70 @@ const App = ({ }) => {
 //     });
 //     return targets.indexOf(closest)
 // }
+
+const removeUndefinedWeightSwatches = (grid: Matrix.Grid) => {
+    grid.columns.forEach(function (column, index, arr) {
+        let weightOptimizedSwatches = column.rows.filter(swatch => { 
+            return swatch.weight !== undefined;
+        });
+        grid.columns[index].rows = weightOptimizedSwatches
+    });
+    return grid
+}
+
+const xGetClosestIndex = (swatch: Matrix.Swatch, targets: Array<any>) => {
+        
+    // var closest = targets.reduce(function (prev, curr) {
+    //     return (Math.abs(curr - swatch.lightness) < Math.abs(prev - swatch.lightness) ? curr : prev);
+    // });
+    // return targets.indexOf(closest)
+
+    let m = (swatch.l_target === 85 ? -2.5 : 0)
+    var closest = targets.reduce(function (prev, curr) {
+        return (Math.abs(curr - (swatch.lightness + m)) < Math.abs(prev - (swatch.lightness + m)) ? curr : prev);
+    });
+    return targets.indexOf(closest)
+
+}
+const xMapSwatchesToTarget = (grid: Matrix.Grid, mapper: SwatchMapModel) => {
+
+    grid.columns.forEach(function (column, index, arr) {
+
+        let neutralTargets = column.rows[12].isNeutral
+        let targets = mapper.newTargets(neutralTargets)
+
+        column.rows.forEach(function (row, index, arr) {
+            row.weight = undefined
+            if (targets.includes(row.l_target)) {
+                row.weight = mapper.weights()[index] 
+            }
+            // good to get the id's of all the visible swatches
+            // let id = ( targets.includes(row.l_target) ? row.id : undefined )
+        });
+
+        //
+        // The userDefinedSwatch may not slot neatly into the L*5 grid. If the defined 
+        // swatch is not present, then insert into grid, replacing for closest match.
+        //
+        column.rows.filter(swatch => { 
+            if ( swatch.isUserDefined === true && swatch.weight === undefined ) {
+                let index = xGetClosestIndex(swatch, targets)
+                swatch.weight = column.rows[index].weight 
+                column.rows[index].weight = undefined
+            }
+        });
+
+      });
+
+
+
+    //   console.log(removeUndefinedWeightSwatches(grid))
+    //   console.log(getSwatchIds(removeUndefinedWeightSwatches(grid)))
+    // console.log(getSwatchIds(grid))
+
+      return grid
+
+}
 
 
 export default App;

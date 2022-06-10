@@ -35,18 +35,20 @@ figma.ui.onmessage = async (msg) => {
             column.rows.forEach(function (swatch) {
 
                 nodes.push(createWeightLabel(swatch, offsetY))
+                // let style = createPaintStyle(swatch)
+                nodes.push(createSwatchRectangle(swatch, createPaintStyle(swatch), offsetX, offsetY ))
 
-                const style = figma.createPaintStyle()
-                style.name = createPaintStyleName(swatch)
-                style.description = createPaintStyleDescription(swatch)
-                style.paints = [{ type: 'SOLID', color: hexToRgb(swatch.hex) }];
+                // const style = figma.createPaintStyle()
+                // style.name = createPaintStyleName(swatch)
+                // style.description = createPaintStyleDescription(swatch)
+                // style.paints = [{ type: 'SOLID', color: hexToRgb(swatch.hex) }];
 
-                const rect = figma.createRectangle();
-                rect.name = createRectangleName(swatch)
-                rect.fillStyleId = style.id
-                rect.resize(swatchWidth, swatchHeight)
-                rect.y = offsetY;
-                rect.x = offsetX;
+                // const rect = figma.createRectangle();
+                // rect.name = createRectangleName(swatch)
+                // rect.fillStyleId = style.id
+                // rect.resize(swatchWidth, swatchHeight)
+                // rect.y = offsetY;
+                // rect.x = offsetX;
 
                 nodes.push(createSwatchLabel(swatch, offsetX, offsetY))
 
@@ -220,6 +222,14 @@ function drawSemantics(this_data) {
 
 }
 
+function createPaintStyle(swatch: Matrix.Swatch) {
+    const r = figma.createPaintStyle()
+    r.name = createPaintStyleName(swatch)
+    r.description = createPaintStyleDescription(swatch)
+    r.paints = [{ type: 'SOLID', color: hexToRgb(swatch.hex) }];
+    return r
+}
+
 function createSwatchLabel(swatch: Matrix.Swatch, x: number, y: number) {
     const r = figma.createText()
     r.characters = (swatch.isUserDefined ? "⭐️ " : "") + swatch.hex.toUpperCase()
@@ -237,7 +247,7 @@ function createSwatchLabel(swatch: Matrix.Swatch, x: number, y: number) {
 
 function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
     const r = figma.createText()
-    r.characters = swatch.l_target.toString()
+    r.characters = swatch.weight.toString()
     r.textAlignHorizontal = "CENTER"
     r.textAlignVertical = "CENTER"
     r.fontName = { family: "Inter", style: "Bold" }
@@ -248,6 +258,19 @@ function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
 
     figma.currentPage.appendChild(r);
     return r
+}
+
+function createSwatchRectangle(swatch: Matrix.Swatch, style: PaintStyle, x: number, y: number) {
+    const r = figma.createRectangle();
+    r.name = createRectangleName(swatch)
+    r.fillStyleId = style.id
+    r.resize(swatchWidth, swatchHeight)
+    r.x = x;
+    r.y = y;
+
+    figma.currentPage.appendChild(r);
+    return r
+
 }
 
 function createSemanticLabel(column: Matrix.Column, offsetX: number) {
@@ -267,8 +290,6 @@ function createSemanticLabel(column: Matrix.Column, offsetX: number) {
     return r
 
 }
-
-
 
 function createRectangleName(swatch: Matrix.Swatch) {
     return ("swatch-" + swatch.semantic + "-" + swatch.row).toLowerCase();
@@ -291,7 +312,7 @@ function createPaintStyleDescription(swatch: Matrix.Swatch) {
 function createPaintStyleName(swatch: Matrix.Swatch) {
     let n = [rootName]
     n.push(swatch.semantic)
-    n.push(swatch.row.toString())  
+    n.push(swatch.weight.toString())
     return n.join("/")
 }
 

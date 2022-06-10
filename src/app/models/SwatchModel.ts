@@ -20,3 +20,15 @@ export class SwatchModel {
     WCAG2_K_30!: boolean
     WCAG2_K_45!: boolean
 }
+
+// "A": {
+//     "values": {
+//         "0": {
+//             "id": "A0",
+//             "value": "#ffffff",
+//             "lightness": 100,
+//             "l_target": 100,
+//             "userDefined": false,
+//             "ccName": "WHITE-05"
+//         },
+//         name:"primary"
