@@ -3,7 +3,8 @@ import { Matrix } from "../app/modules/SwatchMatrix";
 
 const swatchWidth = 140
 const swatchHeight = 44
-const rootName = "palette" as String
+const rootName = "xxx" as String
+var weightLabelsCreated = false
 
 figma.showUI(__html__);
 
@@ -35,27 +36,14 @@ figma.ui.onmessage = async (msg) => {
             column.rows.forEach(function (swatch) {
 
                 nodes.push(createWeightLabel(swatch, offsetY))
-                // let style = createPaintStyle(swatch)
-                nodes.push(createSwatchRectangle(swatch, createPaintStyle(swatch), offsetX, offsetY ))
-
-                // const style = figma.createPaintStyle()
-                // style.name = createPaintStyleName(swatch)
-                // style.description = createPaintStyleDescription(swatch)
-                // style.paints = [{ type: 'SOLID', color: hexToRgb(swatch.hex) }];
-
-                // const rect = figma.createRectangle();
-                // rect.name = createRectangleName(swatch)
-                // rect.fillStyleId = style.id
-                // rect.resize(swatchWidth, swatchHeight)
-                // rect.y = offsetY;
-                // rect.x = offsetX;
-
+                nodes.push(createSwatchRectangle(swatch, createPaintStyle(swatch), offsetX, offsetY))
                 nodes.push(createSwatchLabel(swatch, offsetX, offsetY))
 
                 offsetY = offsetY + swatchHeight
 
             });
 
+            weightLabelsCreated = true
             offsetX = offsetX + swatchWidth
             offsetY = 0
 
@@ -246,18 +234,21 @@ function createSwatchLabel(swatch: Matrix.Swatch, x: number, y: number) {
 }
 
 function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
-    const r = figma.createText()
-    r.characters = swatch.weight.toString()
-    r.textAlignHorizontal = "CENTER"
-    r.textAlignVertical = "CENTER"
-    r.fontName = { family: "Inter", style: "Bold" }
-    r.fontSize = 16
-    r.resize(swatchWidth, swatchHeight)
-    r.x = -80
-    r.y = offsetY
+    if (!weightLabelsCreated) {
+        const r = figma.createText()
+        r.characters = "(L*" + swatch.l_target.toString() + ") " + swatch.weight.toString()
+        r.textAlignHorizontal = "CENTER"
+        r.textAlignVertical = "CENTER"
+        r.fontName = { family: "Inter", style: "Bold" }
+        r.fontSize = 16
+        r.resize(swatchWidth, swatchHeight)
+        r.x = -80
+        r.y = offsetY
 
-    figma.currentPage.appendChild(r);
-    return r
+        figma.currentPage.appendChild(r);
+        return r
+    }
+
 }
 
 function createSwatchRectangle(swatch: Matrix.Swatch, style: PaintStyle, x: number, y: number) {
@@ -297,9 +288,10 @@ function createRectangleName(swatch: Matrix.Swatch) {
 
 function createPaintStyleDescription(swatch: Matrix.Swatch) {
     let r = []
-    r.push("$" + rootName + "-" + swatch.semantic + "-" + swatch.row + "\n")
+    r.push("$" + rootName + "-" + swatch.semantic + "-" + swatch.weight + "\n")
     r.push("\n")
     r.push("L*: " + swatch.lightness + " (" + swatch.l_target + ")" + "\n")
+    r.push("hex: : " + swatch.hex + "\n")
     r.push("id: " + swatch.id + "\n")
     r.push("\n")
     r.push("WCAG2 4.5:1 (W): " + swatch.WCAG2_W_45 + "\n")
