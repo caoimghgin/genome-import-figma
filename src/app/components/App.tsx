@@ -57,8 +57,8 @@ const App = ({ }) => {
         fileReader.onload = (e) => {
             let swatches = formatData(e.target.result)
             // let mapper = new SwatchMapModel(weightedTargets(0)) // non-optimized
-            let mapper = new SwatchMapModel(weightedTargets(6)) // Genome
-            // let mapper = new SwatchMapModel(weightedTargets(7)) // NewsKit
+            // let mapper = new SwatchMapModel(weightedTargets(6)) // Genome
+            let mapper = new SwatchMapModel(weightedTargets(7)) // NewsKit
             let grid = removeUndefinedWeightSwatches(xMapSwatchesToTarget(swatches, mapper))
             parent.postMessage({ pluginMessage: { type: 'new-json', data: grid } }, '*');
         };
