@@ -35,7 +35,12 @@ function updateSwatchLabel(swatch: Matrix.Swatch) {
     let name = createFrameName(swatch);
     let frameNode = figma.currentPage.findOne((n) => n.name === name) as FrameNode;
     let r = frameNode.children[0] as TextNode;
-    r.characters = (swatch.isUserDefined ? '⭐️ ' : '') + swatch.hex.toUpperCase();
+
+    let label = swatch.hex.toUpperCase()
+    if (swatch.isUserDefined) label = '⭐️ ' + label
+    if (swatch.isPinned) label = '📍 ' + label
+    r.characters = label
+    
     r.name = r.characters + ' (L*' + swatch.lightness + ')';
     r.fills =
         swatch.WCAG2_W_45 || swatch.WCAG2_W_30
@@ -167,7 +172,13 @@ function createSwatchFrame(swatch: Matrix.Swatch, style: PaintStyle, x: number, 
 
 function createSwatchLabel(swatch: Matrix.Swatch) {
     const r = figma.createText();
-    r.characters = (swatch.isUserDefined ? '⭐️ ' : '') + swatch.hex.toUpperCase();
+
+    let label = swatch.hex.toUpperCase()
+    if (swatch.isUserDefined) label = '⭐️ ' + label
+    if (swatch.isPinned) label = '📍 ' + label
+    r.characters = label
+    // r.characters = (swatch.isUserDefined ? '⭐️ ' : '') + swatch.hex.toUpperCase();
+    // r.characters = (swatch.isPinned ? '📍 ' : '') + swatch.hex.toUpperCase();
     r.name = r.characters + ' (L*' + swatch.lightness + ')';
     r.fills =
         swatch.WCAG2_W_45 || swatch.WCAG2_W_30

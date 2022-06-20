@@ -9,27 +9,28 @@ export module Matrix {
     }
 
     export class Swatch {
-        id!: string;
-        column!: string;
-        row!: number;
-        name!: string;
-        hex!: string;
-        weight!: string | undefined;
-        semantic!: string;
-        lightness!: number;
-        LAB!: LAB;
-        LCH!: LCH;
-        HSV!: HSV;
-        colorChecker!: ColorCheckerModel;
-        isUserDefined!: boolean;
-        isNeutral!: boolean;
-        l_target!: number;
-        WCAG2!: number;
-        WCAG3!: number;
-        WCAG2_W_30!: boolean;
-        WCAG2_W_45!: boolean;
-        WCAG2_K_30!: boolean;
-        WCAG2_K_45!: boolean;
+        id!: string
+        column!: string
+        row!: number
+        name!: string
+        hex!: string
+        weight!: string
+        semantic!: string
+        lightness!: number
+        LAB!: LAB
+        LCH!: LCH
+        HSV!: HSV
+        colorChecker!: ColorCheckerModel
+        isUserDefined!: boolean
+        isPinned!: boolean
+        isNeutral!: boolean
+        l_target!: number
+        WCAG2!: number
+        WCAG3!: number
+        WCAG2_W_30!: boolean
+        WCAG2_W_45!: boolean
+        WCAG2_K_30!: boolean
+        WCAG2_K_45!: boolean
     }
 
     class ColorCheckerModel {
