@@ -1,9 +1,14 @@
 import '../styles/ui.css';
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {Matrix} from '../modules/SwatchMatrix';
 import {SwatchMapModel} from '../models/SwatchMapModel';
-import {weightedTargets} from '../constants/weightedTargets';
+import {weightedTargets, Options} from '../constants/weightedTargets';
+
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 declare function require(path: string): any;
+
 
 const removeUndefinedWeightSwatches = (grid: Matrix.Grid) => {
     grid.columns.forEach(function (column, index) {
@@ -58,16 +63,21 @@ const formatData = (data: any) => {
 };
 
 const App = ({}) => {
+
     const inputFile = useRef(null);
+    const [selection, setSelection] = useState<number>(0);
 
     const handleInputFile = (e: {target: any}) => {
         const fileReader = new FileReader();
         fileReader.readAsText(e.target.files[0], 'UTF-8');
         fileReader.onload = (e) => {
             let swatches = formatData(e.target.result);
+
             // let mapper = new SwatchMapModel(weightedTargets(0)) // non-optimized
-            let mapper = new SwatchMapModel(weightedTargets(6)) // Genome
+            // let mapper = new SwatchMapModel(weightedTargets(6)) // Genome
             // let mapper = new SwatchMapModel(weightedTargets(7)); // NewsKit
+
+            let mapper = new SwatchMapModel(weightedTargets(selection)) 
             let grid = removeUndefinedWeightSwatches(mapSwatchesToTarget(swatches, mapper));
             parent.postMessage({pluginMessage: {type: 'import-gcs', data: grid}}, '*');
         };
@@ -75,6 +85,12 @@ const App = ({}) => {
 
     const onImport = () => {
         inputFile.current.click();
+    };
+
+    const onSelect = (event) => {
+        console.log(event)
+        let index = parseInt(event.value)
+        setSelection(index)
     };
 
     const onCancel = () => {
@@ -103,6 +119,7 @@ const App = ({}) => {
                 accept="application/JSON"
                 style={{display: 'none'}}
             />
+            <Dropdown options={Options} onChange={onSelect} value={selection.toString()} placeholder="Select an option" />;
 
             {/* <button onClick={onOpen}>DO STUFF</button> */}
             <button onClick={onCancel}>Cancel</button>
