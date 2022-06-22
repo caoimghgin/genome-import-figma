@@ -1,4 +1,4 @@
-import {Matrix} from '../app/modules/SwatchMatrix';
+import { Matrix } from '../app/modules/SwatchMatrix';
 
 const rootName = 'palette' as String;
 const swatchWidth = 140;
@@ -7,10 +7,11 @@ const localPaintStyles = figma.getLocalPaintStyles();
 const styleNames = localPaintStyles.map((style) => style.name);
 
 export const hasChildren = (node: BaseNode): node is BaseNode & ChildrenMixin => Boolean(node['children']);
+const zeroPad = (num, places) => String(num).padStart(places, '0')
 
 const loadFonts = async () => {
-    await figma.loadFontAsync({family: 'Inter', style: 'Regular'});
-    await figma.loadFontAsync({family: 'Inter', style: 'Bold'});
+    await figma.loadFontAsync({ family: 'Inter', style: 'Regular' });
+    await figma.loadFontAsync({ family: 'Inter', style: 'Bold' });
 };
 
 figma.showUI(__html__);
@@ -22,6 +23,8 @@ figma.ui.onmessage = async (msg) => {
 
             if (!paintStyleExists(grid)) {
                 populateFigmaColorStyles(grid);
+                createPaintStylesBW()
+                createPaintStyleEffects()
             } else {
                 updateFigmaColorStyles(grid);
             }
@@ -40,16 +43,16 @@ function updateSwatchLabel(swatch: Matrix.Swatch) {
     if (swatch.isUserDefined) label = '⭐️ ' + label
     if (swatch.isPinned) label = '📍 ' + label
     r.characters = label
-    
+
     r.name = r.characters + ' (L*' + swatch.lightness + ')';
     r.fills =
         swatch.WCAG2_W_45 || swatch.WCAG2_W_30
-            ? [{type: 'SOLID', color: {r: 1, g: 1, b: 1}}]
-            : [{type: 'SOLID', color: {r: 0, g: 0, b: 0}}];
+            ? [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }]
+            : [{ type: 'SOLID', color: { r: 0, g: 0, b: 0 } }];
     r.fontName =
         swatch.WCAG2_W_30 && !swatch.WCAG2_W_45
-            ? {family: 'Inter', style: 'Bold'}
-            : {family: 'Inter', style: 'Regular'};
+            ? { family: 'Inter', style: 'Bold' }
+            : { family: 'Inter', style: 'Regular' };
     return r;
 }
 
@@ -110,7 +113,7 @@ function paintStyleExists(grid: Matrix.Grid) {
 function updatePaintStyle(swatch: Matrix.Swatch, style: PaintStyle) {
     const r = style;
     r.description = createPaintStyleDescription(swatch);
-    r.paints = [{type: 'SOLID', color: hexToRgb(swatch.hex)}];
+    r.paints = [{ type: 'SOLID', color: hexToRgb(swatch.hex) }];
 
     return r;
 }
@@ -119,9 +122,40 @@ function createPaintStyle(swatch: Matrix.Swatch) {
     const r = figma.createPaintStyle();
     r.name = createPaintStyleName(swatch);
     r.description = createPaintStyleDescription(swatch);
-    r.paints = [{type: 'SOLID', color: hexToRgb(swatch.hex)}];
-
+    r.paints = [{ type: 'SOLID', color: hexToRgb(swatch.hex) }];
     return r;
+}
+
+function createPaintStylesBW() {
+
+    const k = figma.createPaintStyle();
+    k.name = rootName + "/" + "b&w" + "/" + "black";
+    k.paints = [{ type: 'SOLID', color: hexToRgb("#000000") }];
+
+    const w = figma.createPaintStyle();
+    w.name = rootName + "/" + "b&w" + "/" + "white";
+    w.paints = [{ type: 'SOLID', color: hexToRgb("#FFFFFF") }];
+
+}
+
+function createPaintStyleEffects() {
+
+    let alphas = [5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95]
+
+    alphas.forEach((alpha) => {
+        const a = figma.createPaintStyle();
+        a.name = "effects" + "/" + "tint" + "/" + "tint" + zeroPad(alpha, 3);
+        a.paints = [{ type: 'SOLID', opacity: alpha/100, color: hexToRgb("#FFFFFF") }];
+        a.description = "white (" + alpha + "% opacity)" 
+    });
+
+    alphas.forEach((alpha) => {
+        const a = figma.createPaintStyle();
+        a.name = "effects" + "/" + "shade" + "/" + "shade" + zeroPad(alpha, 3);
+        a.paints = [{ type: 'SOLID', opacity: alpha/100, color: hexToRgb("#000000") }];
+        a.description = "black (" + alpha + "% opacity)"
+    });
+
 }
 
 function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
@@ -130,7 +164,7 @@ function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
     r.characters = swatch.weight.toString();
     r.textAlignHorizontal = 'CENTER';
     r.textAlignVertical = 'CENTER';
-    r.fontName = {family: 'Inter', style: 'Bold'};
+    r.fontName = { family: 'Inter', style: 'Bold' };
     r.fontSize = 16;
     r.resize(swatchWidth / 2, swatchHeight);
     r.x = -16;
@@ -150,8 +184,6 @@ function createTargetLabel(swatch: Matrix.Swatch, offsetX: number, offsetY: numb
     r.resize(swatchWidth / 2, swatchHeight);
     r.x = offsetX + swatchWidth + 24;
     r.y = offsetY;
-
-    // figma.currentPage.appendChild(r);
     return r;
 }
 
@@ -166,28 +198,24 @@ function createSwatchFrame(swatch: Matrix.Swatch, style: PaintStyle, x: number, 
     r.appendChild(createSwatchLabel(swatch));
     r.x = x;
     r.y = y;
-
     return r;
 }
 
 function createSwatchLabel(swatch: Matrix.Swatch) {
     const r = figma.createText();
-
     let label = swatch.hex.toUpperCase()
     if (swatch.isUserDefined) label = '⭐️ ' + label
     if (swatch.isPinned) label = '📍 ' + label
     r.characters = label
-    // r.characters = (swatch.isUserDefined ? '⭐️ ' : '') + swatch.hex.toUpperCase();
-    // r.characters = (swatch.isPinned ? '📍 ' : '') + swatch.hex.toUpperCase();
     r.name = r.characters + ' (L*' + swatch.lightness + ')';
     r.fills =
         swatch.WCAG2_W_45 || swatch.WCAG2_W_30
-            ? [{type: 'SOLID', color: {r: 1, g: 1, b: 1}}]
-            : [{type: 'SOLID', color: {r: 0, g: 0, b: 0}}];
+            ? [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }]
+            : [{ type: 'SOLID', color: { r: 0, g: 0, b: 0 } }];
     r.fontName =
         swatch.WCAG2_W_30 && !swatch.WCAG2_W_45
-            ? {family: 'Inter', style: 'Bold'}
-            : {family: 'Inter', style: 'Regular'};
+            ? { family: 'Inter', style: 'Bold' }
+            : { family: 'Inter', style: 'Regular' };
     r.fontSize = 16;
     r.textAlignHorizontal = 'CENTER';
     r.textAlignVertical = 'CENTER';
@@ -196,17 +224,15 @@ function createSwatchLabel(swatch: Matrix.Swatch) {
 
 function createSemanticLabel(column: Matrix.Column, offsetX: number) {
     const r = figma.createText();
-
     r.name = ('semantic' + '-' + column.semantic) as string;
     r.characters = column.semantic as string;
     r.textAlignHorizontal = 'CENTER';
     r.textAlignVertical = 'CENTER';
-    r.fontName = {family: 'Inter', style: 'Bold'};
+    r.fontName = { family: 'Inter', style: 'Bold' };
     r.fontSize = 16;
     r.resize(swatchWidth, swatchHeight);
     r.x = offsetX;
     r.y = 0 - swatchHeight * 1.5;
-
     figma.currentPage.appendChild(r);
     return r;
 }
@@ -233,7 +259,7 @@ function createPaintStyleDescription(swatch: Matrix.Swatch) {
 function createPaintStyleName(swatch: Matrix.Swatch) {
     let n = [rootName];
     n.push(swatch.semantic);
-    n.push(swatch.weight.toString());
+    n.push(swatch.semantic + swatch.weight.toString());
     return n.join('/');
 }
 
@@ -241,9 +267,9 @@ function hexToRgb(hex: string) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result
         ? {
-              r: parseInt(result[1], 16) / 255,
-              g: parseInt(result[2], 16) / 255,
-              b: parseInt(result[3], 16) / 255,
-          }
+            r: parseInt(result[1], 16) / 255,
+            g: parseInt(result[2], 16) / 255,
+            b: parseInt(result[3], 16) / 255,
+        }
         : null;
 }
