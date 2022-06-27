@@ -144,18 +144,17 @@ function createPaintStyleEffects() {
 
     alphas.forEach((alpha) => {
         const a = figma.createPaintStyle();
-        a.name = "effects" + "/" + "tint" + "/" + "tint" + zeroPad(alpha, 3);
+        a.name = rootName + "/" + "b&w"  + "/" + "tint" + "/" + "tint" + zeroPad(alpha, 3);
         a.paints = [{ type: 'SOLID', opacity: alpha/100, color: hexToRgb("#FFFFFF") }];
         a.description = "white (" + alpha + "% opacity)" 
     });
 
     alphas.forEach((alpha) => {
         const a = figma.createPaintStyle();
-        a.name = "effects" + "/" + "shade" + "/" + "shade" + zeroPad(alpha, 3);
+        a.name = rootName + "/" +  "b&w"  + "/"  + "shade" + "/" + "shade" + zeroPad(alpha, 3);
         a.paints = [{ type: 'SOLID', opacity: alpha/100, color: hexToRgb("#000000") }];
         a.description = "black (" + alpha + "% opacity)"
     });
-
 }
 
 function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
