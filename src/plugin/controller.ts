@@ -141,17 +141,18 @@ function createPaintStyleEffects() {
 
     alphas.forEach((alpha) => {
         const a = figma.createPaintStyle();
-        a.name = rootName + '/' + 'alpha' + '/' + 'tint' + '/' + 'tint' + zeroPad(alpha, 3);
-        a.paints = [{type: 'SOLID', opacity: alpha / 100, color: hexToRgb('#FFFFFF')}];
-        a.description = 'white (' + alpha + '% opacity)';
+        a.name = rootName + '/' + 'alpha' + '/' + 'black' + '/' + 'black' + zeroPad(alpha, 3);
+        a.paints = [{type: 'SOLID', opacity: alpha / 100, color: hexToRgb('#000000')}];
+        a.description = 'black (' + alpha + '% opacity)';
     });
 
     alphas.forEach((alpha) => {
         const a = figma.createPaintStyle();
-        a.name = rootName + '/' + 'alpha' + '/' + 'shade' + '/' + 'shade' + zeroPad(alpha, 3);
-        a.paints = [{type: 'SOLID', opacity: alpha / 100, color: hexToRgb('#000000')}];
-        a.description = 'black (' + alpha + '% opacity)';
+        a.name = rootName + '/' + 'alpha' + '/' + 'white' + '/' + 'white' + zeroPad(alpha, 3);
+        a.paints = [{type: 'SOLID', opacity: alpha / 100, color: hexToRgb('#FFFFFF')}];
+        a.description = 'white (' + alpha + '% opacity)';
     });
+
 }
 
 function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
