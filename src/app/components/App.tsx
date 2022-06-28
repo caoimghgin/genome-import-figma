@@ -9,7 +9,6 @@ import 'react-dropdown/style.css';
 
 declare function require(path: string): any;
 
-
 const removeUndefinedWeightSwatches = (grid: Matrix.Grid) => {
     grid.columns.forEach(function (column, index) {
         let weightOptimizedSwatches = column.rows.filter((swatch) => {
@@ -63,7 +62,6 @@ const formatData = (data: any) => {
 };
 
 const App = ({}) => {
-
     const inputFile = useRef(null);
     const [selection, setSelection] = useState<number>(0);
 
@@ -77,7 +75,7 @@ const App = ({}) => {
             // let mapper = new SwatchMapModel(weightedTargets(6)) // Genome
             // let mapper = new SwatchMapModel(weightedTargets(7)); // NewsKit
 
-            let mapper = new SwatchMapModel(weightedTargets(selection)) 
+            let mapper = new SwatchMapModel(weightedTargets(selection));
             let grid = removeUndefinedWeightSwatches(mapSwatchesToTarget(swatches, mapper));
             parent.postMessage({pluginMessage: {type: 'import-gcs', data: grid}}, '*');
         };
@@ -88,9 +86,9 @@ const App = ({}) => {
     };
 
     const onSelect = (event) => {
-        console.log(event)
-        let index = parseInt(event.value)
-        setSelection(index)
+        console.log(event);
+        let index = parseInt(event.value);
+        setSelection(index);
     };
 
     const onCancel = () => {
@@ -111,7 +109,6 @@ const App = ({}) => {
         <div>
             <img src={require('../assets/logo.svg')} />
             <h2>Genome Import</h2>
-
             <input
                 ref={inputFile}
                 onChange={handleInputFile}
@@ -119,9 +116,13 @@ const App = ({}) => {
                 accept="application/JSON"
                 style={{display: 'none'}}
             />
-            <Dropdown options={Options} onChange={onSelect} value={selection.toString()} placeholder="Select an option" />;
-
-            {/* <button onClick={onOpen}>DO STUFF</button> */}
+            <Dropdown
+                options={Options}
+                onChange={onSelect}
+                value={selection.toString()}
+                placeholder="Select an option"
+            />
+            ;{/* <button onClick={onOpen}>DO STUFF</button> */}
             <button onClick={onCancel}>Cancel</button>
             <button id="create" onClick={onImport}>
                 Import
