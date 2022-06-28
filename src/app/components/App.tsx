@@ -47,11 +47,15 @@ const mapSwatchesToTarget = (grid: Matrix.Grid, mapper: SwatchMapModel) => {
         column.rows.filter(swatch => { 
             if ( swatch.isPinned === true && swatch.weight === undefined ) {
                 let index = getClosestIndex(swatch, targets)
-                swatch.weight = column.rows[index].weight 
-                column.rows[index].weight = undefined
+                // need to test if a .isUserDefined is in the slot!
+                let testing = column.rows[index]
+                if (testing.isUserDefined == false) {
+                    swatch.weight = column.rows[index].weight 
+                    column.rows[index].weight = undefined
+                }
             }
         });
-
+        
         //
         // The userDefinedSwatch may not slot neatly into the L*5 matrix. If defined
         // swatch is not present, then insert into matrix, replacing for closest match.

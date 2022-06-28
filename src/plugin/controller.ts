@@ -141,14 +141,14 @@ function createPaintStyleEffects() {
 
     alphas.forEach((alpha) => {
         const a = figma.createPaintStyle();
-        a.name = rootName + '/' + 'neutral' + '/' + 'tint' + '/' + 'tint' + zeroPad(alpha, 3);
+        a.name = rootName + '/' + 'alpha' + '/' + 'tint' + '/' + 'tint' + zeroPad(alpha, 3);
         a.paints = [{type: 'SOLID', opacity: alpha / 100, color: hexToRgb('#FFFFFF')}];
         a.description = 'white (' + alpha + '% opacity)';
     });
 
     alphas.forEach((alpha) => {
         const a = figma.createPaintStyle();
-        a.name = rootName + '/' + 'neutral' + '/' + 'shade' + '/' + 'shade' + zeroPad(alpha, 3);
+        a.name = rootName + '/' + 'alpha' + '/' + 'shade' + '/' + 'shade' + zeroPad(alpha, 3);
         a.paints = [{type: 'SOLID', opacity: alpha / 100, color: hexToRgb('#000000')}];
         a.description = 'black (' + alpha + '% opacity)';
     });
@@ -234,8 +234,7 @@ function createSemanticLabel(column: Matrix.Column, offsetX: number) {
 }
 
 function createFrameName(swatch: Matrix.Swatch) {
-    let name = createPaintStyleName(swatch).toLowerCase();
-    return name.split('/').join('-');
+    return swatch.semantic + swatch.weight.toString()
 }
 
 function createPaintStyleDescription(swatch: Matrix.Swatch) {
