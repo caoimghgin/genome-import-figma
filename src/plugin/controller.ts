@@ -1,5 +1,16 @@
 import {Matrix} from '../app/modules/SwatchMatrix';
 
+// @ts-ignore
+const SearchFilter = {
+    Full: 0,
+    Contains: 1,
+    Child: 2,
+    Root: 3,
+    StartsWith: 4,
+    EndsWith: 5,
+    LastDirectory: 6,
+};
+
 const rootName = 'palette' as String;
 const swatchWidth = 140;
 const swatchHeight = 44;
@@ -17,6 +28,27 @@ const loadFonts = async () => {
 figma.showUI(__html__);
 
 figma.ui.onmessage = async (msg) => {
+    if (msg.type === 'TEST') {
+        // FULL PATH
+        // let name = "palette/neutral/neutral015"
+        // let paintStyle = getPaintStyle(name, SearchFilter.Full)[0]
+
+        // ITEM NAME
+        // let name = "neutral015"
+        // let paintStyles = getPaintStyle(name, SearchFilter.Child)
+
+        let name = 'palette/neutral/neutral015';
+        let paintStyles = getPaintStyle(name, figma.getLocalPaintStyles(), SearchFilter.EndsWith);
+
+        paintStyles.forEach((paintStyle) => {
+            let paint = paintStyle.paints[0];
+            let rgb = figmaPaintToRGB(paint);
+            console.log(name);
+            console.log(paint);
+            console.log(rgb, rgbToHex(rgb));
+        });
+    }
+
     loadFonts().then(() => {
         if (msg.type === 'import-gcs') {
             let grid = msg.data as Matrix.Grid;
@@ -59,7 +91,8 @@ function updateSwatchLabel(swatch: Matrix.Swatch) {
 function updateFigmaColorStyles(grid: Matrix.Grid) {
     grid.columns.forEach(function (column) {
         column.rows.forEach(function (swatch) {
-            let paintStyle = getPaintStyleByName(swatch)[0];
+            let name = createPaintStyleName(swatch);
+            let paintStyle = getPaintStyleWithPathName(name)[0];
             updatePaintStyle(swatch, paintStyle);
             updateSwatchLabel(swatch);
         });
@@ -96,12 +129,60 @@ function populateFigmaColorStyles(grid: Matrix.Grid) {
     figma.viewport.scrollAndZoomIntoView(nodes);
 }
 
-function getPaintStyleByName(swatch: Matrix.Swatch) {
-    let n = createPaintStyleName(swatch);
-    var r = localPaintStyles.filter((obj) => {
-        return obj.name === n;
+function getPaintStyleWithPathName(name: string) {
+    return figma.getLocalPaintStyles().filter((obj) => {
+        return obj.name === name;
     });
-    return r;
+}
+
+// @ts-ignore
+function getPaintStyle(name: string, paintStyles?: undefined | PaintStyles[], filter?: SearchFilter.Full) {
+    if (paintStyles === undefined) paintStyles = figma.getLocalPaintStyles();
+
+    if (filter === undefined) filter = SearchFilter.Full;
+
+    switch (filter) {
+        case SearchFilter.Full:
+            return paintStyles.filter((obj) => {
+                return obj.name === name;
+            });
+
+        case SearchFilter.Contains:
+            return paintStyles.filter((obj) => {
+                return obj.name.includes(name);
+            });
+
+        case SearchFilter.Child:
+            return paintStyles.filter((obj) => {
+                const path = obj.name.split('/');
+                if (path[-1] === name) {
+                    return obj;
+                }
+                // return obj.name.includes(name);
+            });
+
+        case SearchFilter.Root:
+            return paintStyles.filter((obj) => {
+                return obj.name.includes(name);
+            });
+
+        case SearchFilter.LastDirectory:
+            return paintStyles.filter((obj) => {
+                return obj.name.includes(name);
+            });
+
+        default:
+            return paintStyles.filter((obj) => {
+                return obj.name === name;
+            });
+    }
+}
+
+// @ts-ignore
+function getPaintStyleWithNameIncluding(name: string) {
+    return figma.getLocalPaintStyles().filter((obj) => {
+        return obj.name.includes(name);
+    });
 }
 
 function paintStyleExists(grid: Matrix.Grid) {
@@ -152,7 +233,6 @@ function createPaintStyleEffects() {
         a.paints = [{type: 'SOLID', opacity: alpha / 100, color: hexToRgb('#FFFFFF')}];
         a.description = 'white (' + alpha + '% opacity)';
     });
-
 }
 
 function createWeightLabel(swatch: Matrix.Swatch, offsetY: number) {
@@ -235,7 +315,7 @@ function createSemanticLabel(column: Matrix.Column, offsetX: number) {
 }
 
 function createFrameName(swatch: Matrix.Swatch) {
-    return swatch.semantic + swatch.weight.toString()
+    return swatch.semantic + swatch.weight.toString();
 }
 
 function createPaintStyleDescription(swatch: Matrix.Swatch) {
@@ -257,6 +337,20 @@ function createPaintStyleName(swatch: Matrix.Swatch) {
     n.push(swatch.semantic);
     n.push(swatch.semantic + swatch.weight.toString());
     return n.join('/');
+}
+
+function figmaPaintToRGB(paint): any {
+    let color = paint['color'];
+    return {
+        r: Math.round(color.r * 255),
+        g: Math.round(color.g * 255),
+        b: Math.round(color.b * 255),
+        a: Math.round(paint.opacity * 100) / 100,
+    };
+}
+
+function rgbToHex(rgb) {
+    return '#' + ((1 << 24) + (rgb.r << 16) + (rgb.g << 8) + rgb.b).toString(16).slice(1);
 }
 
 function hexToRgb(hex: string) {

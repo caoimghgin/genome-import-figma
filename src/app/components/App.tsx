@@ -44,18 +44,18 @@ const mapSwatchesToTarget = (grid: Matrix.Grid, mapper: SwatchMapModel) => {
         // The pinned may not slot neatly into the L*5 matrix. If defined
         // swatch is not present, then insert into matrix, replacing for closest match.
         //
-        column.rows.filter(swatch => { 
-            if ( swatch.isPinned === true && swatch.weight === undefined ) {
-                let index = getClosestIndex(swatch, targets)
+        column.rows.filter((swatch) => {
+            if (swatch.isPinned === true && swatch.weight === undefined) {
+                let index = getClosestIndex(swatch, targets);
                 // need to test if a .isUserDefined is in the slot!
-                let testing = column.rows[index]
+                let testing = column.rows[index];
                 if (testing.isUserDefined == false) {
-                    swatch.weight = column.rows[index].weight 
-                    column.rows[index].weight = undefined
+                    swatch.weight = column.rows[index].weight;
+                    column.rows[index].weight = undefined;
                 }
             }
         });
-        
+
         //
         // The userDefinedSwatch may not slot neatly into the L*5 matrix. If defined
         // swatch is not present, then insert into matrix, replacing for closest match.
@@ -97,6 +97,13 @@ const App = ({}) => {
         };
     };
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const onTest = () => {
+        // inputFile.current.click();
+        parent.postMessage({pluginMessage: {type: 'TEST'}}, '*');
+    };
+
     const onImport = () => {
         inputFile.current.click();
     };
@@ -123,8 +130,9 @@ const App = ({}) => {
 
     return (
         <div>
-            <img src={require('../assets/logo.svg')} />
-            <h2>Genome Import</h2>
+            <h4>Don't have a gcs.json file? Create one here...</h4>
+            <a href="https://www.genomecolor.space/">Genome Color Tool</a>
+
             <input
                 ref={inputFile}
                 onChange={handleInputFile}
@@ -138,11 +146,14 @@ const App = ({}) => {
                 value={selection.toString()}
                 placeholder="Select an option"
             />
-            ;{/* <button onClick={onOpen}>DO STUFF</button> */}
+            {/* <button onClick={onOpen}>DO STUFF</button> */}
             <button onClick={onCancel}>Cancel</button>
             <button id="create" onClick={onImport}>
                 Import
             </button>
+            {/* <button id="create" onClick={onTest}>
+                FIND STYLES TEST
+            </button> */}
         </div>
     );
 };
