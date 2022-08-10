@@ -151,9 +151,9 @@ const App = ({}) => {
             <button id="create" onClick={onImport}>
                 Import
             </button>
-            {/* <button id="create" onClick={onTest}>
+            <button id="create" onClick={onTest}>
                 FIND STYLES TEST
-            </button> */}
+            </button>
         </div>
     );
 };

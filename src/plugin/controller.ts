@@ -2,13 +2,18 @@ import {Matrix} from '../app/modules/SwatchMatrix';
 
 // @ts-ignore
 const SearchFilter = {
-    Full: 0,
-    Contains: 1,
-    Child: 2,
-    Root: 3,
-    StartsWith: 4,
-    EndsWith: 5,
-    LastDirectory: 6,
+    // Returns a single item with exact path
+    FullPath: 0,
+    // Returns items whose full path contains keyword
+    PathContains: 1,
+    // Returns items whose top most directory equals keyword
+    RootDirectory: 2,
+    // Returns items whose parent directory equals keyword
+    ItemDirectory: 3,
+    // Returns items where any directory equals keyword
+    AnyDirectoryEquals: 4,
+    // Returns any item(s) whose name equals keyword
+    ItemName: 5,
 };
 
 const rootName = 'palette' as String;
@@ -37,16 +42,20 @@ figma.ui.onmessage = async (msg) => {
         // let name = "neutral015"
         // let paintStyles = getPaintStyle(name, SearchFilter.Child)
 
-        let name = 'palette/neutral/neutral015';
-        let paintStyles = getPaintStyle(name, figma.getLocalPaintStyles(), SearchFilter.EndsWith);
+        let paintStyles = figma.getLocalPaintStyles();
+        let filteredPaintStyles = paintStylesFiltered(paintStyles, 'neutral', SearchFilter.PathContains);
+        // console.log(filteredPaintStyles)
 
-        paintStyles.forEach((paintStyle) => {
-            let paint = paintStyle.paints[0];
-            let rgb = figmaPaintToRGB(paint);
-            console.log(name);
-            console.log(paint);
-            console.log(rgb, rgbToHex(rgb));
+        filteredPaintStyles.forEach((paintStyle) => {
+            console.log(paintStyle.name);
+
+            // let paint = paintStyle.paints[0];
+            // let rgb = figmaPaintToRGB(paint);
+            // console.log(paint);
+            // console.log(rgb, rgbToHex(rgb));
         });
+
+        figma.closePlugin();
     }
 
     loadFonts().then(() => {
@@ -136,44 +145,55 @@ function getPaintStyleWithPathName(name: string) {
 }
 
 // @ts-ignore
-function getPaintStyle(name: string, paintStyles?: undefined | PaintStyles[], filter?: SearchFilter.Full) {
-    if (paintStyles === undefined) paintStyles = figma.getLocalPaintStyles();
-
-    if (filter === undefined) filter = SearchFilter.Full;
-
+function paintStylesFiltered(paintStyles: PaintStyles[], keyword: string, filter?: SearchFilter.FullPath) {
     switch (filter) {
-        case SearchFilter.Full:
+        case SearchFilter.FullPath:
             return paintStyles.filter((obj) => {
-                return obj.name === name;
+                return obj.name === keyword;
             });
 
-        case SearchFilter.Contains:
+        case SearchFilter.PathContains:
             return paintStyles.filter((obj) => {
-                return obj.name.includes(name);
+                return obj.name.includes(keyword);
             });
 
-        case SearchFilter.Child:
+        case SearchFilter.ItemName:
             return paintStyles.filter((obj) => {
                 const path = obj.name.split('/');
-                if (path[-1] === name) {
+                if (path[path.length - 1] === keyword) {
                     return obj;
                 }
-                // return obj.name.includes(name);
             });
 
-        case SearchFilter.Root:
+        case SearchFilter.RootDirectory:
             return paintStyles.filter((obj) => {
-                return obj.name.includes(name);
+                const path = obj.name.split('/');
+                if (path[0] === keyword) {
+                    return obj;
+                }
             });
 
-        case SearchFilter.LastDirectory:
+        case SearchFilter.ItemDirectory:
             return paintStyles.filter((obj) => {
-                return obj.name.includes(name);
+                const path = obj.name.split('/');
+                if (path.length > 1) {
+                    if (path[path.length - 2] === keyword) {
+                        return obj;
+                    }
+                }
+            });
+
+        case SearchFilter.AnyDirectoryEquals:
+            return paintStyles.filter((obj) => {
+                const path = obj.name.split('/');
+                if (path.includes(keyword)) {
+                    return obj;
+                }
             });
 
         default:
             return paintStyles.filter((obj) => {
-                return obj.name === name;
+                return obj.name === keyword;
             });
     }
 }
