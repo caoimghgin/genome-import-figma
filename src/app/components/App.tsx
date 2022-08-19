@@ -86,11 +86,6 @@ const App = ({}) => {
         fileReader.readAsText(e.target.files[0], 'UTF-8');
         fileReader.onload = (e) => {
             let swatches = formatData(e.target.result);
-
-            // let mapper = new SwatchMapModel(weightedTargets(0)) // non-optimized
-            // let mapper = new SwatchMapModel(weightedTargets(6)) // Genome
-            // let mapper = new SwatchMapModel(weightedTargets(7)); // NewsKit
-
             let mapper = new SwatchMapModel(weightedTargets(selection));
             let grid = removeUndefinedWeightSwatches(mapSwatchesToTarget(swatches, mapper));
             parent.postMessage({pluginMessage: {type: 'import-gcs', data: grid}}, '*');
@@ -130,7 +125,7 @@ const App = ({}) => {
 
     return (
         <div>
-            <h4>Don't have a gcs.json file? Create one here...</h4>
+            <h4>Need a gcs.json file? Make one here...</h4>
             <a href="https://www.genomecolor.space/">Genome Color Tool</a>
 
             <input
@@ -151,9 +146,9 @@ const App = ({}) => {
             <button id="create" onClick={onImport}>
                 Import
             </button>
-            <button id="create" onClick={onTest}>
+            {/* <button id="create" onClick={onTest}>
                 FIND STYLES TEST
-            </button>
+            </button> */}
         </div>
     );
 };

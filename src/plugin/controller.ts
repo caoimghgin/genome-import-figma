@@ -359,6 +359,7 @@ function createPaintStyleName(swatch: Matrix.Swatch) {
     return n.join('/');
 }
 
+// @ts-ignore
 function figmaPaintToRGB(paint): any {
     let color = paint['color'];
     return {
@@ -369,6 +370,7 @@ function figmaPaintToRGB(paint): any {
     };
 }
 
+// @ts-ignore
 function rgbToHex(rgb) {
     return '#' + ((1 << 24) + (rgb.r << 16) + (rgb.g << 8) + rgb.b).toString(16).slice(1);
 }
