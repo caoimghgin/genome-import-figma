@@ -31,6 +31,7 @@ const loadFonts = async () => {
 };
 
 figma.showUI(__html__);
+figma.ui.resize(480, 480);
 
 figma.ui.onmessage = async (msg) => {
     if (msg.type === 'TEST') {
