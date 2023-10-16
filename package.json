@@ -1,47 +1,33 @@
 {
-	"name": "figma-plugin-react-template",
-	"version": "1.0.0",
-	"description": "This plugin template uses Typescript. If you are familiar with Javascript, Typescript will look very familiar. In fact, valid Javascript code is already valid Typescript code.",
-	"license": "ISC",
-	"scripts": {
-		"build": "webpack --mode=production",
-		"build:watch": "webpack --mode=development --watch",
-		"prettier:format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,json}' "
-	},
-	"dependencies": {
-		"react-select": "^5.4.0",
-		"@emotion/react": "^11.10.0",
-		"@emotion/styled": "^11.10.0",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"react-dropdown": "^1.10.0"
-	},
-	"devDependencies": {
-		"@figma/plugin-typings": "^1.24.0",
-		"@types/react": "^17.0.11",
-		"@types/react-dom": "^17.0.7",
-		"css-loader": "^5.0.1",
-		"html-webpack-inline-source-plugin": "^0.0.10",
-		"html-webpack-plugin": "^3.2.0",
-		"husky": "^4.3.0",
-		"lint-staged": "^10.5.1",
-		"prettier": "^2.3.1",
-		"style-loader": "^2.0.0",
-		"ts-loader": "^8.0.11",
-		"typescript": "^4.1.2",
-		"url-loader": "^4.1.1",
-		"webpack": "^4.41.4",
-		"webpack-cli": "^3.3.6"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"src/**/*.{js,jsx,ts,tsx,css,json}": [
-			"prettier --write",
-			"git add"
-		]
-	}
+  "name": "genome-color-importer",
+  "version": "1.0.0",
+  "description": "A template for creating Figma plugins using @create-figma-plugin/ui",
+  "author": "Kevin Muldoon",
+  "license": "ISC",
+  "figma-plugin": {
+    "editorType": ["figma"],
+    "id": "1143283713928897621",
+    "name": "Genome Color Importer",
+    "main": "src/plugin/controller.ts",
+    "ui": "src/App.tsx"
+  },
+  "dependencies": {
+    "@create-figma-plugin/ui": "^2.5.0",
+    "@create-figma-plugin/utilities": "^2.5.0",
+    "chroma-js": "^2.4.2",
+    "lodash": "^4.17.21",
+    "preact": ">=10"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "^2.5.0",
+    "@create-figma-plugin/tsconfig": "^2.5.1",
+    "@figma/plugin-typings": "1.68.0",
+    "@types/chroma-js": "^2.4.0",
+    "@types/prismjs": "^1.26.0",
+    "typescript": ">=4"
+  },
+  "scripts": {
+    "build": "build-figma-plugin --typecheck --minify",
+    "watch": "build-figma-plugin --typecheck --watch"
+  }
 }
