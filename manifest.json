@@ -1,10 +1,1 @@
-{
-  "name": "Genome Import",
-  "id": "1143283713928897621",
-  "api": "1.0.0",
-  "main": "dist/code.js",
-  "ui": "dist/ui.html",
-  "editorType": [
-    "figma"
-  ]
-}
+{"api":"1.0.0","editorType":["figma"],"id":"1143283713928897621","name":"Genome Color Importer","main":"build/main.js","ui":"build/ui.js"}
