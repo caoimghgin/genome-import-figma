@@ -1,7 +1,5 @@
 import { h } from 'preact'
-import { Inline, Text, Container, VerticalSpace, Link } from '@create-figma-plugin/ui'
-import { Matrix } from '../genome/modules/SwatchMatrix'
-import { Mapper } from '../genome/mapper'
+import {  Text, VerticalSpace, Link } from '@create-figma-plugin/ui'
 import { Options } from '../genome/constants/weightedTargets'
 
 export const OptimizationMessage = (optimization: string) => {
@@ -14,7 +12,7 @@ export const OptimizationMessage = (optimization: string) => {
             return (
                 <div>
                     <VerticalSpace space="large" />
-                    <Text align="left">The <b>Base Optimization</b> divided into L*5 steps. All optimizations are derived from these values.</Text>
+                    <Text align="left">The <b>Univers Color Palette Optimization</b> is divided into L*5 steps. All optimizations are derived from these values. More information on this optimization can be found on Medium.com article <Link href="https://medium.com/user-experience-design-1/the-universal-color-palette-9826deb94f7" target="_blank"><b>The universal color palette</b></Link>.</Text>
                 </div>
             )
         case WeightedTargetsOptions.Genome:
