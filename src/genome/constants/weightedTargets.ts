@@ -8,6 +8,7 @@ import { materialOptimization } from "../optimizations/material";
 import { newsKitOptimization } from "../optimizations/newsKit";
 import { spectrumOptimization } from "../optimizations/spectrum";
 import { baseOptimization } from "../optimizations/base";
+import { universOptimization } from "../optimizations/univers";
 
 export type weightedTargetsRow = {
     target: number;
@@ -20,7 +21,7 @@ export type weightedTargetsColumn = {
 };
 
 export const Options = [
-    {value: '0', label: 'Non-optimized', message: ''},
+    {value: '0', label: 'Univers', message: ''},
     {value: '1', label: 'Genome', message: ''},
     {value: '2', label: 'IBM Carbon', message: ''},
     {value: '3', label: 'SalesForce Lightning', message: ''},
@@ -32,7 +33,7 @@ export const Options = [
 ];
 
 enum WeightedTargetsOptions {
-    Base = 0,
+    Univers = 0,
     Genome,
     Carbon,
     Lightning,
@@ -45,8 +46,8 @@ enum WeightedTargetsOptions {
 
 export const WeightedTargets = (index: WeightedTargetsOptions): weightedTargetsColumn => {
     switch (index) {
-        case WeightedTargetsOptions.Base:
-            return baseOptimization;
+        case WeightedTargetsOptions.Univers:
+            return universOptimization;
         case WeightedTargetsOptions.Carbon:
             return carbonOptimization;
         case WeightedTargetsOptions.Lightning:
